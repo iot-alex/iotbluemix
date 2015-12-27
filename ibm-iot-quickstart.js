@@ -23,9 +23,8 @@ var broker = "quickstart.messaging.internetofthings.ibmcloud.com";
 var topic;
 var client;
 
-require('getmac').getMac(function(err, macAddress) {
-    if (err) throw err;
-
+//require('getmac').getMac(function(err, macAddress) {
+//    if (err) throw err;
 //    macAddress = macAddress.toString().replace(/:/g, '').toLowerCase();
     macAddress = "78:4b:87:9f:53:cc";
 
@@ -117,7 +116,7 @@ require('getmac').getMac(function(err, macAddress) {
         console.log("Connection options: ");
         console.log(options);
     });
-});
+// });
 
 function sendMessage() {
     var message = {};
