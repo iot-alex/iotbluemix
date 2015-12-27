@@ -10,4 +10,4 @@ PWD=`pwd`
 #
 #[ "$sum1" != "$sum2" ] && cp data/* node_modules/geoip-lite/data/ && echo "pre-loading geo-data"
 
-forever start $PWD/app.js
+forever start $PWD/app.js 2>&1 > $PWD/log/iotupdates.log
