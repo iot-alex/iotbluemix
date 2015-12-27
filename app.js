@@ -132,7 +132,7 @@ function sendMessageTemp() {
     var message = {};
     message.d = {};
     //read the CPU temp from sysfs
-    fs.readFile('/sys/class/thermal/thermal_zone0/temp','utf8', function (err, data) {
+    fs.readFile('/sys/class/thermal/thermal_zone1/temp','utf8', function (err, data) {
         if (err) throw err;
         message.d.cputemp = data/1000;
         console.log(message);
