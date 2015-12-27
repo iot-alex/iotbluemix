@@ -118,7 +118,10 @@ var client;
     });
 // });
 
-function sendMessage() {
+function sendMessage(){
+    sendMessageTemp();
+}
+function sendMessageDate() {
     var message = {};
     message.d = {};
     message.d.date = Date.now();
