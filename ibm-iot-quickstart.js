@@ -4,7 +4,7 @@
 // All rights reserved. This program and the accompanying materials
 // are made available under the terms of the Eclipse Public License v1.0
 // which accompanies this distribution, and is available at
-// http://www.eclipse.org/legal/epl-v10.html 
+// http://www.eclipse.org/legal/epl-v10.html
 //
 // Contributors:
 //  IBM - Initial Contribution
@@ -25,15 +25,16 @@ var client;
 
 require('getmac').getMac(function(err, macAddress) {
     if (err) throw err;
-    
-    macAddress = macAddress.toString().replace(/:/g, '').toLowerCase();
+
+//    macAddress = macAddress.toString().replace(/:/g, '').toLowerCase();
+    macAddress = "78:4b:87:9f:53:cc";
 
     require('properties').parse(configFile, { path: true }, function (err, config){
         var options = {};
-        
+
         // Set the configuration used when no device.cfg is present
-        var organization = "quickstart";
-        var deviceType = "iotsample-galileo";
+        var organization = "pointlook";
+        var deviceType = "intelEdison";
 
         // If device.cfg was loaded successfully update the configuarion
         if(config){
@@ -73,7 +74,7 @@ require('getmac').getMac(function(err, macAddress) {
         else {
             console.log("No configuration file found, connecting to the quickstart servcice.");
         }
-        
+
         options.clientId = "d:" + organization + ":" + deviceType + ":" + macAddress;
         client = mqtt.createClient(port, broker, options);
         topic = "iot-2/evt/status/fmt/json";
@@ -85,7 +86,7 @@ require('getmac').getMac(function(err, macAddress) {
 
             client.on('message', function(topic, message) {
                 console.log('Received command on topic: ' + topic);
-                
+
                 var msg;
                 try {
                     msg = JSON.parse(message);
@@ -108,8 +109,8 @@ require('getmac').getMac(function(err, macAddress) {
                 }
             });
         }
-          
-        
+
+
         console.log("Broker: " + broker);
         console.log("Device ID: " + macAddress);
         console.log("Topic: " + topic);
