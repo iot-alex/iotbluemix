@@ -4,7 +4,7 @@
   "description": "Sample application which sends CPU temp to the IBM IoT Quickstart service",
   "main": "ibm-iot-quickstart.js",
   "scripts": {
-    "start": "node ibm-iot-quickstart.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "mqtt": "^0.3.8",

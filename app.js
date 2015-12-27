@@ -26,7 +26,7 @@ var client;
 //require('getmac').getMac(function(err, macAddress) {
 //    if (err) throw err;
 //    macAddress = macAddress.toString().replace(/:/g, '').toLowerCase();
-    macAddress = "78:4b:87:9f:53:cc";
+    macAddress = "784b879f53cc";
 
     require('properties').parse(configFile, { path: true }, function (err, config){
         var options = {};
@@ -119,6 +119,13 @@ var client;
 // });
 
 function sendMessage() {
+    var message = {};
+    message.d = {};
+    message.d.date = Date.now();
+    console.log(message);
+    client.publish(topic, JSON.stringify(message));
+}
+function sendMessageTemp() {
     var message = {};
     message.d = {};
     //read the CPU temp from sysfs
